@@ -1,0 +1,27 @@
+/*Esto es un comentario en CSS*/
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 100px;
+    background-color: #f2f2f2;
+}
+
+#sobre-mi /*Selector de id*/
+{
+    background-color: #f2f2f2;
+}
+.menu_option /*Selector de clase*/
+{
+    background-color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.menu_option:hover /*Selector de clase con pseudo-clase*/
+{
+    background-color: #e6e6e6;
+}
