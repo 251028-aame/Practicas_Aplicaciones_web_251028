@@ -6,7 +6,8 @@
     <meta name="description" content="Mi perfil de estudiante">
     <title>Alma Ariadne Maldonado Eslava @T.S.U. en Desarrollo de Sotware Multiplataforma </title>
     <link id="mi-favicon" rel="icon" href="/Practica03/assets/images/perfil.png" type="image/png"> 
-    <!--<link id="mi-favicon" rel="icon" href="assets/images/perfil.png" type="image/png">-->
+    <link id="mi-favicon" rel="icon" href="assets/images/perfil.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
@@ -15,17 +16,28 @@
     <!-- ==================== -->
      <nav id="menu"> <!-- Etiqueta de semántica con el atributo id-->
         <ul>
-            <li>Inicio</li>
-            <li>Acerca de mí</li>
-            <li>Aspiraciones</li>
-            <li>Hobbies</li>
-            <li>Favoritos</li>
-            <li>Redes Sociales</li>            
+            <li class="menu_option"><a href="#inicio">Inicio</a></li>
+            <li class="menu_option"><a href="#acerca-de-mi">Acerca de mí</a></li>
+            <li class="menu_option"><a href="#aspiraciones">Aspiraciones</a></li>
+            <li class="menu_option"><a href="#hobbies">Hobbies</a></li>
+            <li class="menu_option"><a href="#favoritos">Favoritos</a></li>
+            <li class="menu_option"><a href="#redes-sociales">Redes Sociales</a></li>            
         </ul>
      </nav>
 
+     <header id="inicio" class="parallax parallax-1"> 
+        <div class="glass hero-card">
+            <img src="assets/images/perfil.png" alt="Foto de perfil">
+            <h1>Hola, soy Alma Ariadne! 👍 </h1>
+            <p>Estudiante de Tecnologías de la Información</p>
+            <blackquote>
+            "La disciplina del hoy, construye el éxito del mañana."    
+            </blackquote>
+             <a href="#acerca-de-mi" class="boton">Conócenme ⬇ </a>
+        </div>
+
      <!-- Acerca de mí -->
-      <section>
+      <section id="acerca-de-mi">
         <h2> 👤 Acerca de mí </h2>
         <div> <!-- Etiqueta de estructura que agrupa elementos -->
             <div>
