@@ -1,0 +1,6 @@
+﻿# Prácticas de la asignatura de Aplicaciones Web
+## T.S.U en Desarrollo de Software Multiplataforma
+
+**Docente:** M.T.I. Marco A. Ramirez Hernández
+
+**Periodo:** Septiembre - Diciembre 2026
