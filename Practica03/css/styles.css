@@ -142,7 +142,7 @@ section {
     background: rgba(0, 0, 0, 0.38);
 }
 /*CONTENIDO SOBRE EL FONDO*/
-.PARALLAX > * {
+.parallax > * {
     position: relative;
     z-index: 2;
 }
@@ -167,16 +167,20 @@ section {
 }
 
 .profile-img {
-    width: clamp(140px, 20vmin, 300px);
-    height:  clamp(140px, 20vmin, 300px);
-
+    width: 170px;
+    height: 170px;
     object-fit: cover;
     border-radius: 50%;
-
     display: block;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
 
-    box-shadow: 0 10px 30px rgba(255, 255, 255,0.4);
-
+.perfil {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.55);
 }
 
 .glass{
@@ -189,18 +193,19 @@ section {
     1px solid
     rgba(255, 255, 255, 0.25);
     border-radius: 
-    24%;
+    18%;
     box-shadow: 
     0 25px 50px
     rgba(0, 0, 0, 0.25);
-    border-radius: 24px;
 }
 
-.hero-card{
-    max-width: 700px;
+.hero-card {
+    width: min(90%, 750px);
+    max-width: 750px;
     padding: 45px;
     text-align: center;
 }
+
 .hero-header {
     display: flex;
     align-items: center;
@@ -209,19 +214,21 @@ section {
     margin-bottom: 15px;
 }
 
-/* Ajustes a la imagen dentro del contenedor */
 .hero-header .perfil {
     margin: 0;
     flex-shrink: 0;
 }
-.hero-card h1{
+
+.hero-card h1 {
     font-size: 2.5rem;
-    margin-bottom: 8px;
+    margin: 0;
     text-align: left;
+    white-space: nowrap;
 }
 
-.hero-card p{
+.hero-card p {
     font-size: 1.2rem;
+    margin: 15px 0;
 }
 
 blockquote{
