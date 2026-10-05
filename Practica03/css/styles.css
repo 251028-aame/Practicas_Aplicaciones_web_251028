@@ -401,3 +401,10 @@ GRID
     width: 36px;
 
 }
+.cinco{
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.tres{
+    grid-template-columns: repeat(3,1fr);
+}

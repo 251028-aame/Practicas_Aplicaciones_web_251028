@@ -129,30 +129,30 @@
        <!-- HOBBIES -->
        <!-- ==================== -->
 
-       <section id="hobbies">
+       <section id="hobbies" class="seccion solido-3">
        <h2>Lo que disfruto hacer</h2>
-       <div>
-        <article>
+       <div class="grid cinco">
+        <article class="card">
             <h3>💻 Programar</h3>
             <p>Crear soluciones</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>🎮 Videojuegos</h3>
             <p>Explorar mundos digitales.</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>🎧 Música</h3>
             <p>Escuchar mis canciones favoritas.</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>📷 Fotografía</h3>
             <p>Capturar momentos.</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>✈️ Viajar</h3>
             <p>Conocer nuevos lugares.</p>
         </article>
@@ -171,23 +171,30 @@
        <!-- FAVORITOS -->
        <!-- ==================== -->
 
-       <section id="favoritos">
+       <section id="favoritos" class="seccion solido-4">
         <h2> Mis favoritos</h2>
-        <div>
-            <article>
+        <div class="grid">
+            <article class="card">
                 <h3>🎬 Película favorita</h3>
-                <img src="assets/images/pelicula.jpg" alt="Película favorita">
+                <img src="/Practica03/assets/images/mammamia!.jpg" alt="Película favorita">
                 <p> Mamma Mia</p>
             </article>
 
-            <article>
-                <h3>Canción favorita</h3>
-                <p>Nombre de la canción</p>
+            <article class="card">
+                <h3>🎵 Canción favorita</h3>
+                <img src="/Practica03/assets/images/Abrzame_Muy_Fuerte_Cover.jpg" alt="Canción favorita">
+                <p>Abrazame muy fuerte-Juan Gabriel</p>
+                 <audio controls>
+                    <source src="/Practica03/assets/audio/Juan Gabriel - Abrázame Muy Fuerte.mp3"
+                            type="audio/mpeg">
+                </audio>
+
             </article>
 
-            <article>
-            <h3> Libro </h3>
-            <p>Título del libro.</p>
+            <article class="card">
+            <h3>📚 Libro favorito</h3>
+            <img src="/Practica03/assets/images/el principitof.jpg" alt="Libro favorito">
+            <p>El principito</p>
         </article>
         </div>
        </section>
@@ -199,7 +206,7 @@
     <section id="redes" class="seccion redes"
              >
 
-        <h2>Mis redes sociales</h2>
+        <h2>🌐 Mis redes sociales</h2>
 
         <p>
             Puedes encontrarme en:
@@ -306,65 +313,49 @@
 
             </a>
 
-            <a href="https://www.linkedin.com/"
-               target="_blank"
-               aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/"
+   target="_blank"
+   aria-label="LinkedIn">
 
-                <svg viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24">
+        <rect x="4"
+              y="9"
+              width="4"
+              height="11"
+              fill="currentColor"/>
 
-                    <rect x="4"
-                          y="9"
-                          width="4"
-                          height="11"
-                          fill="currentColor"/>
+        <circle cx="6"
+                cy="5.5"
+                r="2"
+                fill="currentColor"/>
 
-                    <circle cx="6"
-                            cy="5.5"
-                            r="2"
-                            fill="currentColor"/>
+        <path fill="currentColor"
+              d="M10 9h4v1.6
+                 c1-1.3 2.2-2 4-2
+                 3.2 0 5 2.1 5 6.2V20h-4v-4.6
+                 c0-2-.7-3.1-2.2-3.1
+                 -1.8 0-2.8 1.3-2.8 3.4V20h-4z"/>
+    </svg>
 
-                    <path fill="currentColor"
-                          d="M10 9h4v1.6
-                          c1-1.3 2.2-2 4-2
-                          3.2 0 5 2.1 5 6.2V20h-4v-4.6
-                          c0-2-.7-3.1-2.2-3.1
-                          -1.8 0-2.8 1.3-2.8 3.4V20h-4z"/>
+    <span>LinkedIn</span>
 
-                </svg>
+</a>
 
-                <span>LinkedIn</span>
+<a href="https://www.youtube.com/"
+   target="_blank"
+   aria-label="YouTube">
 
-            </a>
+    <svg viewBox="0 0 24 24">
+        <path fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3L10 15z"/>
+    </svg>
 
-            <a href="https://www.youtube.com/"
-               target="_blank"
-               aria-label="YouTube">
+    <span>YouTube</span>
 
-                <svg viewBox="0 0 24 24">
+</a>
 
-                    <path fill="currentColor"
-                          d="M21 7.5
-                          c-.2-1.4-1.2-2.5-2.6-2.7
-                          C16.4 4.5 12 4.5 12 4.5
-                          s-4.4 0-6.4.3
-                          C4.2 5 3.2 6.1 3 7.5
-                          2.7 9 2.7 12 2.7 12
-                          s0 3 .3 4.5
-                          c.2 1.4 1.2 2.5 2.6 2.7
-                          2 .3 6.4.3 6.4.3
-                          s4.4 0 6.4-.3
-                          c1.4-.2 2.4-1.3 2.6-2.7
-                          .3-1.5.3-4.5.3-4.5
-                          s0-3-.3-4.5z"/>
-
-                    <polygon points="10,9 16,12 10,15"
-                             fill="white"/>
-
-                </svg>
-
-                <span>YouTube</span>
-
-            </a>
 
         </div>
 
