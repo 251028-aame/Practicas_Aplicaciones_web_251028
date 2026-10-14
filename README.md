@@ -58,5 +58,5 @@ Gracias a este reto autónomo, se logró alojar un sitio web estático accesible
 |---|---|---|---|---|
 |1.  |Metodología de Evaluación de la materia.| Transcribir en libreta y comprender la metodología y fechas de evaluación de la asignatura.| 5 | 🟢 Concluida |
 |2.  |Mi Primer Página Web.| Codificar la primer página web con HTML puro, sin estilos ni funcionalidades.| 10 | 🟢 Concluida |
-|3.  |Mi Primer Página Web.| Codificación de primer página web| 30 | 🟢 Concluida |
+|3   |Mi Primer Página Web.| Codificación de primer página web| 30 | 🟢 Concluida |
 |4.  |Mi Primer Página Web en GitHub Pages.| Hospedaje de la página web| 10 | 🟢 Concluida |
