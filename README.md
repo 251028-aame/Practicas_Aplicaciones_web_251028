@@ -8,6 +8,9 @@ Periodo: Septiembre-Diciembre
 ---
 ## 📸 Evidencia de Configuración
 A continuación se muestra la captura de pantalla de la sección de **Settings > Pages** dentro del repositorio, confirmando la correcta activación y publicación del sitio web:
+![Captura de pantalla de la configuración de GitHub Pages](./Practica03/assets/images/captura-gh-pages.png)
+
+![Captura de pantalla de la página web](./Practica03/assets/images/captura1.png)
 ---
 
 ## 🛠️ Procedimiento Realizado
