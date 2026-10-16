@@ -13,9 +13,20 @@
     </header>
 
     <main>
-        <form action="" method="POST">
+        <form action="" method="">
             <fieldset>
                 <legend>Datos Personales</legend>
+                <label for="titulo">Titulo de Cortesia:</label>
+                <select>
+                    <option>Sr.</option>
+                    <option>Sra.</option>
+                    <option>Srita.</option>
+                    <option>Ing.</option>
+                    <option>Dr.</option>
+                    <option>Mtro.</option>
+                    <option>Ninguno</option>.</option>
+                </select>
+                <br>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" placeholder="Alma Ariadne" required>
                 <br>
@@ -78,8 +89,102 @@
                 <label for="codigoPostal">Codigo Postal:</label>
                 <input type="text" id="codigoPostal"  placeholder="73165" required>
             </fieldset>
-            <input type="submit" value="Enviar Solicitud">
+            <br>
+            <input type="checkbox" value="validado"> Acepto los términos y condiciones del uso de la
+            plataforma MecaGest.
+            <br><br>
+            <input type="submit" value="Enviar solicitud" disabled>
+            <input type="reset" value="Limpiar formulario">
+
          </form>
+
+         <br>
+         <br>
+
+         <form><!--Elementos input que usaremos mas adelante-->
+            <fieldset>
+                <legend> Visualizacion de citas por mes: </legend>
+                <label for="mesCitas">Por favor seleccione el mes:</label>
+                <input type="month" id="mesCitas">
+                <button id="verCitas">Ver citas</button>
+
+                <br>
+                <h4>Las citas programadas para el mes elegido son:</h4>
+                <br>
+                <table style="border: 1px solid black">
+                        <tr>
+                            <th style="border: 1px solid black">No.</th>
+                            <th style="border: 1px solid black">Nombre</th>
+                            <th style="border: 1px solid black">Descripcion</th>
+                            <th style="border: 1px solid black">Fecha Programada</th>
+                            <th style="border: 1px solid black">Estatus Actual</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black">1</td>
+                            <td style="border: 1px solid black">Cita de entrega de unidad reparada con el 
+                                cliente: Mauricio Mejia, Unidad: Volkswagen Jetta 2020</td>
+                            <td style="border: 1px solid black">Se realizo un cambio de bujias, la unidad 
+                                esta lista para entrega</td>
+                            <td style="border: 1px solid black">10 de octubre de 2026</td>
+                            <td style="border: 1px solid black">Atendida</td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black">2</td>
+                            <td style="border: 1px solid black">Cita de valoracion con el cliente: Marco A. 
+                                Ramirez, Unidad: Renault, Duster 2014</td>
+                            <td style="border: 1px solid black">El cliente solicita una revision del cuerpo
+                                de aceleracion de la unidad para posible mantenimiento correctivo.</td>
+                            <td style="border: 1px solid black">16 de octubre de 2026</td>
+                            <td style="border: 1px solid black">Programada</td>
+                        </tr>
+
+                         <tr>
+                            <td style="border: 1px solid black">3</td>
+                            <td style="border: 1px solid black">Cita de revision con el cliente: Mauricio 
+                                Mejia, Unidad: Volkswagen Jetta 2020</td>
+                            <td style="border: 1px solid black">A la unidad se le hicieron cambio de bujias,
+                                pero el cliente reporta un sonido extraño</td>
+                            <td style="border: 1px solid black">17 de octubre de 2026</td>
+                            <td style="border: 1px solid black">Programada</td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black">4</td>
+                            <td style="border: 1px solid black">Cita de valoracion con la cliente: Alejandra
+                                Romero, Unidad: Toyota, Hilux 2012</td>
+                            <td style="border: 1px solid black">El cliente solicita una revision del cuerpo
+                                de aceleracion de la unidad para posible mantenimiento correctivo.</td>
+                            <td style="border: 1px solid black">16 de octubre de 2026</td>
+                            <td style="border: 1px solid black">Cancelada</td>
+                        </tr>
+
+                        <tr>
+                             <td style="border: 1px solid black">5</td>
+                            <td style="border: 1px solid black">Cita de valoracion con la cliente: Alejandra
+                                Romero, Unidad: Toyota, Hilux 2012</td>
+                            <td style="border: 1px solid black">El cliente solicita una revision del cuerpo
+                                de aceleracion de la unidad para posible mantenimiento correctivo.</td>
+                            <td style="border: 1px solid black">20 de octubre de 2026</td>
+                            <td style="border: 1px solid black">Programada</td>
+                        </tr>
+                    <tbody id="citasTableBody">
+                        <!-- Aquí se llenarán las citas programadas mediante JavaScript -->
+                    </tbody>
+                </table>
+            </fieldset>
+         
+
+         <fieldset>
+            <legend>Configuraciones de la Interfaz:</legend>
+            <label for="fontColor">Color de la Fuente</label>
+            <input type="color" id="fontColor">
+            <br>
+            <label for="backgroundColor">Color de Fondo</label>
+            <input type="color" id="backgroundColor" value="#CCC">
+            </fieldset>
+        
+        </form>
     </main>
 </body>
 </html>
