@@ -168,9 +168,6 @@
                             <td style="border: 1px solid black">20 de octubre de 2026</td>
                             <td style="border: 1px solid black">Programada</td>
                         </tr>
-                    <tbody id="citasTableBody">
-                        <!-- Aquí se llenarán las citas programadas mediante JavaScript -->
-                    </tbody>
                 </table>
             </fieldset>
          
@@ -184,6 +181,129 @@
             <input type="color" id="backgroundColor" value="#CCC">
             </fieldset>
         
+        <!--Formulario input que usaremos mas adelante-->
+         <fieldset>
+            <legend>Configuracion de Mi cuenta/perfil:</legend>
+            <label for="userPhoto">Foto de perfil:</label>
+            <input type="file" id="userPhoto" accept="image/*">
+            <br>
+            <input type="image" id="buttonNext" src="assets/image/next.gif" alt="Siguiente" width="50" height="50">
+            <br>
+            <input type="hidden" id="userId" value="251028">
+         </fieldset> 
+
+                <fieldset>
+                    <legend>Datos Fiscales:</legend>
+                    <label for="rfc">Registro Federal de Causantes (RFC):</label>
+                    <input type="text" id="rfc" maxlength="13" placeholder="RAHMXXXXXXX">
+                    <br>
+                    <label for="fiscalSituation">Constancia de Situacion Fiscal:</label>
+                    <input type="file" id="fiscalSituation" accept=".pdf">
+                    <input type="hidden" id="userId" value="251028">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Solicitud de Citas:</legend>
+                    <label for="dateAppoiment">Fecha de la Cita:</label>
+                    <input type="datetime-local" id="dateAppoiment">
+                    <br>
+                    <label for="descriptionText">Descripción de la Cita:</label>
+                    <textarea id="descriptionText"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Solicitud de Herramientas y Refacciones para Servicio Mecanico:</legend>
+                    <label for="resourceCategory" >Categoria de Recursos:</label>
+                    <input type="radio" id="resouceRefaction" name="resourceCategory" value="refaccion">Refaccion
+                    <input type="radio" id="resourceTool" name="resourceCategory" value="tool">Herramienta
+                    <br>
+                    <legend>Solicitud de herramientas para Servicio Mecánico: </legend>
+                    <label for="toolName">Elige la pieza: </label>
+                    <select>
+                        <optgroup label="Pieza de Motor">
+                            <option value="bujia">Bujía</option>
+                            <option value="filtro_aceite">Filtro de Aceite</option>
+                            <option value="banda_distribucion">Banda de Distribución</option>
+                        </optgroup>
+                        
+                        <optgroup label="Pieza de Transmisión">
+                            <option value="disco_embrague">Disco de Embrague</option>
+                            <option value="collarin">Collarin de Embrague</option>
+                            <option value="junta_homocinetica">Junta Homocinetica</option>
+                            <option value="semieje">Semieje de transmision</option>
+                        </optgroup>
+                        
+                        <optgroup label="Pieza de Suspensión">
+                            <option value="amortiguador">Amortiguador</option>
+                            <option value="rotula">Rotula de suspencion</option>
+                        </optgroup>
+
+                        <optgroup label="Llaves y Herramientas Especializadas">
+                            <option value="llave_combinada">Llave combinada</option>
+                            <option value="llave_torx">Llave torx</option>
+                            <option value="llave_dinamometrica">Llave dinamometrica</option>
+                            <option value="extractor_poleas">Extractor de poleas</option>
+                            <option value="compresor_resortes">Compresor de resortes</option>
+                            <option value="scanner_obd2">Escanear automotriz OBD-II</option>
+                        </optgroup>  
+                    </select>
+                    <label for="toolQuantity">Cantidad</label>
+                    <input type="number" id="toolQuantity" min="1" max="10">
+                    <button id="requestTool">Solicitar Herramientas</button>
+
+                     <table border="1" >
+        <thead>
+            
+                <th>No.</th>
+                <th>Herramienta</th>
+                <th>Categoría</th>
+                <th>Cantidad</th>
+                <th>Unidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Llave combinada</td>
+                <td>Herramienta manual</td>
+                <td>4</td>
+                <td>Piezas</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Llave dinamométrica</td>
+                <td>Herramienta especializada</td>
+                <td>2</td>
+                <td>Piezas</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Extractor de poleas</td>
+                <td>Herramienta especializada</td>
+                <td>1</td>
+                <td>Juego</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Llave Torx</td>
+                <td>Herramienta manual</td>
+                <td>3</td>
+                <td>Juegos</td>
+            </tr>
+           
+                <td colspan="3" style="text-align: right;">Total de unidades</td>
+                <td>10</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+                </fieldset>
+
+
+
+            </form>
         </form>
     </main>
 </body>
