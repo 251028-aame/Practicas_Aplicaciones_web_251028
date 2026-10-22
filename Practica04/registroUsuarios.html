@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 251028</title>
+    <link rel="icon" type="image/png" href="assets/image/automa.png">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>    
 <body>
     <header>
+        <div class="header-contenido">
+        <!-- Reemplaza "assets/image/automa.png" por la ruta de tu logo -->
+        <img src="assets/image/Logo_Sistema.jpeg" alt="Logo MecaGest" class="logo-header">
+        <div class="header-texto">
         <h1>MecaGest</h1>
         <h2>Registro de nuevos usuarios</h2>
         <p>Complete los campos para solicitar una cuenta en el sistema.</p>
@@ -58,6 +64,19 @@
                 <label for="horarioContacto">Favor de contactar en el horario:</label>
                 <input type="time" id="horarioContactoInicio" placeholder="09:00"> a 
                 <input type="time" id="horarioContactOFin" placeholder="18:00">
+                <br>
+                <h4>Redes Sociales</h4>
+                <input type="checkbox" id="socialNetworks">
+                <label for="urlFacebook">Facebook:</label>
+                <input type="url" placeholder="http://www.facebook.com/userName">
+                <br>
+                <input type="checkbox" id="socialNetworks">
+                <label for="url">Linkdn:</label>
+                <input type="url" placeholder="http://www.linkdn.com/userName">
+                <br>
+                <input type="checkbox" id="socialNetworks">
+                <label for="urlWhatsapp">WhatsApp: (Cargar QR)</label>
+                <input type="file" id="whatsAppQR" accept="image/*">
             </fieldset>
 
             <fieldset>
@@ -90,11 +109,14 @@
                 <input type="text" id="codigoPostal"  placeholder="73165" required>
             </fieldset>
             <br>
-            <input type="checkbox" value="validado"> Acepto los términos y condiciones del uso de la
-            plataforma MecaGest.
-            <br><br>
-            <input type="submit" value="Enviar solicitud" disabled>
-            <input type="reset" value="Limpiar formulario">
+           <!-- Reemplaza esta parte en tu HTML -->
+<label class="checkbox-label">
+    <input type="checkbox" id="aceptoTerminos" value="validado" onchange="document.getElementById('btnSubmit').disabled = !this.checked"> 
+    Acepto los términos y condiciones del uso de la plataforma MecaGest.
+</label>
+<br><br>
+<input type="submit" id="btnSubmit" value="Enviar solicitud" disabled>
+<input type="reset" value="Limpiar formulario">
 
          </form>
 
@@ -103,9 +125,16 @@
 
          <form><!--Elementos input que usaremos mas adelante-->
             <fieldset>
-                <legend> Visualizacion de citas por mes: </legend>
-                <label for="mesCitas">Por favor seleccione el mes:</label>
-                <input type="month" id="mesCitas">
+                <legend> Visualizacion de citas por: </legend>
+                <label for="mesCitas">Por favor, elige el filtro: </label>
+
+                <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked> Mes
+                <input type="radio" value="Month" name="appoimentFilter" id="appoimentByWeek" > Semana
+                <br>
+
+                <input type="month">
+                <br>
+                <input type="week" disabled>
                 <button id="verCitas">Ver citas</button>
 
                 <br>
@@ -179,6 +208,10 @@
             <br>
             <label for="backgroundColor">Color de Fondo</label>
             <input type="color" id="backgroundColor" value="#CCC">
+            <br>
+            <label for="soundsVolume">Volumen de reproducción de Sonidos</label>
+            <input type="range" id="soundsVolume" min="0" max="100" value="80">
+            <button id="muteSounds">Silenciar Sonidos </button>
             </fieldset>
         
         <!--Formulario input que usaremos mas adelante-->
@@ -206,6 +239,17 @@
                     <legend>Solicitud de Citas:</legend>
                     <label for="dateAppoiment">Fecha de la Cita:</label>
                     <input type="datetime-local" id="dateAppoiment">
+                    <br>
+
+                    <label for="locations">Elige la sucursal:</label>
+                    <input list="locationsList" placeholder="Busca tu sucursal...">
+                    <datalist id="locationsList">
+                        <option>Xicotepec, Centro</option>
+                        <option>Xicotepec, El Tabacal</option>
+                        <option>San Isidro, Tierra Negra</option>
+                        <option>Necaxa, Canaditas</option>
+                        <option>Huauchinango, Petrolera 1</option>
+                    </datalist>
                     <br>
                     <label for="descriptionText">Descripción de la Cita:</label>
                     <textarea id="descriptionText"></textarea>

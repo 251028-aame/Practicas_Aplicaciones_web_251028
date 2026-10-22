@@ -1,0 +1,332 @@
+/* ============================= */
+/* VARIABLES DE COLOR Y BASE */
+/* ============================= */
+:root {
+    --azul-arandano: #1040B0;  /* Acento brillante / Acciones / Hover primario */
+    --azul-medalla:  #2C5697;  /* Superficies / Tarjetas / Encabezados */
+    --azul-boligrafo:#2E5B9A;  /* Estructuras / Navegación / Botones secundarios */
+    
+    --fondo-oscuro:   #0f172a;  /* Fondo principal base */
+    --fondo-seccion:  #1e293b;  /* Fondo de secciones sólidas oscuras */
+    --fondo-tarjeta:  #1e293b;  /* Tarjetas informativas con contraste */
+    
+    --texto-principal: #f8fafc; /* Blanco suave de alta legibilidad */
+    --texto-secundario:#cbd5e1; /* Gris claro para párrafos */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+/* ============================= */
+/* HEADER Y ENCABEZADO */
+/* ============================= */
+header {
+    background: linear-gradient(135deg, var(--azul-medalla), var(--fondo-seccion));
+    color: var(--texto-principal);
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 2px solid var(--azul-arandano);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor flexible para alinear imagen y texto */
+.header-contenido {
+    display: flex;
+    align-items: center;      /* Centra verticalmente logo y texto */
+    justify-content: center; /* Centra horizontalmente todo el bloque */
+    gap: 18px;                /* Espacio entre la imagen y el texto */
+    margin-bottom: 8px;
+}
+
+/* Tamaño y estilo de la imagen del encabezado */
+.logo-header {
+    width: 65px;              /* Ajusta el ancho según prefieras */
+    height: 65px;             /* Mantiene proporción uniforme */
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)); /* Sombra para resaltar la imagen */
+}
+
+.header-texto {
+    text-align: left;         /* Alinea los títulos respecto al logo */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    color: var(--texto-principal);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+header h2 {
+    margin: 4px 0 0 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #67e8f9;           /* Acento cian brillante */
+}
+
+header p {
+    margin: 12px 0 0 0;
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 480px) {
+    .header-contenido {
+        flex-direction: column; /* Coloca la imagen arriba en móviles muy pequeños */
+        gap: 10px;
+    }
+    
+    .header-texto {
+        text-align: center;
+    }
+}
+
+/* ============================= */
+/* CONTENEDOR PRINCIPAL */
+/* ============================= */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ============================= */
+/* FIELDSETS Y LEYENDAS (TARJETAS) */
+/* ============================= */
+fieldset {
+    background: var(--fondo-seccion);
+    border: 1px solid var(--azul-boligrafo);
+    border-radius: 16px;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+fieldset:hover {
+    border-color: var(--azul-arandano);
+}
+
+legend {
+    background: var(--azul-medalla);
+    color: var(--texto-principal);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    border: 1px solid var(--azul-arandano);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ============================= */
+/* FORMULARIOS Y ENTRADAS (INPUTS) */
+/* ============================= */
+label {
+    display: inline-block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--texto-principal);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="password"],
+input[type="passsword"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    background-color: var(--fondo-oscuro);
+    border: 1px solid var(--azul-boligrafo);
+    border-radius: 8px;
+    color: var(--texto-principal);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #67e8f9;
+    box-shadow: 0 0 8px rgba(103, 232, 249, 0.3);
+}
+
+input[type="file"] {
+    background: transparent;
+    border: none;
+    color: var(--texto-secundario);
+    margin-bottom: 12px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: var(--azul-arandano);
+    transform: scale(1.15);
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* ============================= */
+/* BOTONES Y ACCIONES */
+/* ============================= */
+button, 
+input[type="submit"], 
+input[type="reset"] {
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+input[type="submit"], button#verCitas, button#requestTool {
+    background: var(--azul-medalla);
+    color: var(--texto-principal);
+    border: 1px solid var(--azul-boligrafo);
+}
+
+input[type="submit"]:hover:not(:disabled), 
+button#verCitas:hover, 
+button#requestTool:hover {
+    background: var(--azul-arandano);
+    border-color: #67e8f9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(16, 64, 176, 0.4);
+}
+
+input[type="submit"]:disabled {
+    background: #334155;
+    color: #64748b;
+    cursor: not-allowed;
+    border-color: transparent;
+}
+
+input[type="reset"] {
+    background: transparent;
+    color: var(--texto-secundario);
+    border: 1px solid var(--azul-boligrafo);
+}
+
+input[type="reset"]:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--texto-principal);
+}
+
+button#muteSounds {
+    background: #dc2626;
+    color: white;
+}
+
+button#muteSounds:hover {
+    background: #b91c1c;
+}
+
+/* ============================= */
+/* TABLAS DE CITAS Y HERRAMIENTAS */
+/* ============================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--fondo-oscuro);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--azul-boligrafo) !important;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+th {
+    background-color: var(--azul-medalla);
+    color: var(--texto-principal);
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+tr:hover {
+    background-color: rgba(46, 91, 154, 0.15);
+}
+
+/* ============================= */
+/* CLASES UTILITARIAS Y MEJORAS */
+/* ============================= */
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+h4 {
+    color: var(--texto-principal);
+    border-bottom: 1px solid var(--azul-boligrafo);
+    padding-bottom: 6px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    main {
+        padding: 0 10px;
+    }
+    fieldset {
+        padding: 15px;
+    }
+    table {
+        font-size: 0.85rem;
+    }
+    th, td {
+        padding: 8px;
+    }
+}
