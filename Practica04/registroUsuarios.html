@@ -10,345 +10,244 @@
 <body>
     <header>
         <div class="header-contenido">
-        <!-- Reemplaza "assets/image/automa.png" por la ruta de tu logo -->
-        <img src="assets/image/Logo_Sistema.jpeg" alt="Logo MecaGest" class="logo-header">
-        <div class="header-texto">
-        <h1>MecaGest</h1>
-        <h2>Registro de nuevos usuarios</h2>
-        <p>Complete los campos para solicitar una cuenta en el sistema.</p>
+            <img src="assets/image/Logo_Sistema.jpeg" alt="Logo MecaGest" class="logo-header">
+            <div class="header-texto">
+                <h1>MecaGest</h1>
+                <h2>Registro de nuevos usuarios</h2>
+                <p>Complete los campos para solicitar una cuenta en el sistema.</p>
+            </div>
+        </div>
     </header>
 
     <main>
-        <form action="" method="">
-            <fieldset>
+        <!-- Mensaje global para la alerta superior (roja) / respuesta (amarilla) -->
+        <div id="mensajeEstado" style="display: none;"></div>
+
+        <form action="" method="POST" id="formularioRegistro">
+
+            <!-- PASO 1: DATOS PERSONALES -->
+            <fieldset class="form-section">
                 <legend>Datos Personales</legend>
-                <label for="titulo">Titulo de Cortesia:</label>
-                <select>
+
+                <label for="titulo">Título de Cortesía:</label>
+                <select id="titulo">
                     <option>Sr.</option>
                     <option>Sra.</option>
                     <option>Srita.</option>
                     <option>Ing.</option>
                     <option>Dr.</option>
                     <option>Mtro.</option>
-                    <option>Ninguno</option>.</option>
+                    <option>Ninguno</option>
                 </select>
                 <br>
+
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" placeholder="Alma Ariadne" required>
                 <br>
+
                 <label for="apPaterno">Apellido Paterno:</label>
                 <input type="text" id="apPaterno" placeholder="Maldonado" required>
                 <br>
-            <label for="apMaterno">Apellido Materno:</label>
-            <input type="text" id="apMaterno" placeholder="Eslava">
-            <br>
-            <label for="genero">Genero:</label>
-            <select id="genero">
-                <option value="F">Femenino</option>
-                <option value="M">Masculino</option>
-                <option value="X">Prefiero no decirlo</option>
-            </select>
-            <br>
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+                <label for="apMaterno">Apellido Materno:</label>
+                <input type="text" id="apMaterno" placeholder="Eslava">
+                <br>
+
+                <label for="genero">Género:</label>
+                <select id="genero">
+                    <option value="F">Femenino</option>
+                    <option value="M">Masculino</option>
+                    <option value="X">Prefiero no decirlo</option>
+                </select>
+                <br>
+
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+                <span id="resultadoEdad" style="font-weight: bold; display: block; margin-top: 10px; color: #e67e22;">
+                    Selecciona una fecha para calcular tu edad.
+                </span>
+                <br>
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
 
-            <fieldset>  
+            <!-- PASO 2: DATOS DE CONTACTO -->
+            <fieldset class="form-section" hidden>  
                 <legend>Datos de Contacto</legend>
-                <label for="email">Correo Electrònico:</label>
+
+                <label for="email">Correo Electrónico:</label>
                 <input type="email" id="email" name="correo" placeholder="alma@example.com" required>
                 <br>
-                <label for="phone">Numero de Telefono:</label>
-                <input type="phone" id="phone" name="telefono" placeholder="+55 764 121 0192" required>
+
+                <label for="phone">Número de Teléfono:</label>
+                <input type="tel" id="phone" name="telefono" placeholder="+55 764 121 0192" required>
                 <br>
-                <label for="horarioContacto">Favor de contactar en el horario:</label>
+
+                <label for="horarioContactoInicio">Favor de contactar en el horario:</label>
                 <input type="time" id="horarioContactoInicio" placeholder="09:00"> a 
                 <input type="time" id="horarioContactOFin" placeholder="18:00">
-                <br>
+                <br><br>
+
                 <h4>Redes Sociales</h4>
-                <input type="checkbox" id="socialNetworks">
+                <input type="checkbox" id="socialFb">
                 <label for="urlFacebook">Facebook:</label>
-                <input type="url" placeholder="http://www.facebook.com/userName">
-                <br>
-                <input type="checkbox" id="socialNetworks">
-                <label for="url">Linkdn:</label>
-                <input type="url" placeholder="http://www.linkdn.com/userName">
-                <br>
-                <input type="checkbox" id="socialNetworks">
-                <label for="urlWhatsapp">WhatsApp: (Cargar QR)</label>
+                <input type="url" id="urlFacebook" placeholder="http://www.facebook.com/userName">
+                <br><br>
+
+                <input type="checkbox" id="socialLinkedin">
+                <label for="urlLinkedin">LinkedIn:</label>
+                <input type="url" id="urlLinkedin" placeholder="http://www.linkedin.com/userName">
+                <br><br>
+
+                <input type="checkbox" id="socialWa">
+                <label for="whatsAppQR">WhatsApp: (Cargar QR)</label>
                 <input type="file" id="whatsAppQR" accept="image/*">
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
 
-            <fieldset>
+            <!-- PASO 3: DATOS DE ACCESO -->
+            <fieldset class="form-section" hidden>
                 <legend>Datos de Acceso</legend>
+
                 <label for="usuario">Usuario:</label>
                 <input type="text" id="usuario" placeholder="ariadnees" required>
                 <br>
+
                 <label for="contrasena">Contraseña:</label>
-                <input type="passsword" id="contrasena"  placeholder="**********" required>
+                <input type="password" id="contrasena" placeholder="**********" required>
                 <br>
+
                 <label for="confirmarContraseña">Confirmar Contraseña:</label>
-                <input type="password" id="ConfirmarContraseña" placeholder="**********">
+                <input type="password" id="confirmarContraseña" placeholder="**********" required>
+
+                <div class="botones-seccion">
+                    <button type="button" class="btn-siguiente">Siguiente</button>
+                    <button type="reset" class="btn-borrar">Borrar</button>
+                </div>
             </fieldset>
 
-            <fieldset>
-                <legend>Datos de Ubicacion</legend>
-                <label for="direccion">Direccion:</label>
-                <input type="text" id="direccion" placeholder="Calle, Numero, Colonia, Ciudad, Estado, Codigo Postal" required>
+            <!-- PASO 4: DATOS DE UBICACIÓN Y ENVÍO -->
+            <fieldset class="form-section" hidden>
+                <legend>Datos de Ubicación</legend>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, Código Postal" required>
                 <br>
-                <label for="pais">Pais:</label>
-                <input type="text" id="pais"  placeholder="Mexico" required>
+
+                <label for="pais">País:</label>
+                <input type="text" id="pais" placeholder="México" required>
                 <br>
+
                 <label for="estado">Estado:</label>
-                <input type="text" id="estado"  placeholder="Ciudad de Mexico" required>
+                <input type="text" id="estado" placeholder="Ciudad de México" required>
                 <br>
+
                 <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad"  placeholder="Ciudad de Mexico" required>
+                <input type="text" id="ciudad" placeholder="Ciudad de México" required>
                 <br>
-                <label for="codigoPostal">Codigo Postal:</label>
-                <input type="text" id="codigoPostal"  placeholder="73165" required>
+
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" id="codigoPostal" placeholder="73165" required>
+                <br><br>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" id="validado" required> 
+                    Acepto los términos y condiciones del uso de la plataforma MecaGest.
+                </label>
+                <br><br>
+
+                <div class="botones-seccion">
+                    <input type="submit" id="btnSubmit" value="Enviar solicitud" disabled>
+                    <input type="reset" value="Limpiar formulario" class="btn-borrar">
+                </div>
             </fieldset>
-            <br>
-           <!-- Reemplaza esta parte en tu HTML -->
-<label class="checkbox-label">
-    <input type="checkbox" id="aceptoTerminos" value="validado" onchange="document.getElementById('btnSubmit').disabled = !this.checked"> 
-    Acepto los términos y condiciones del uso de la plataforma MecaGest.
-</label>
-<br><br>
-<input type="submit" id="btnSubmit" value="Enviar solicitud" disabled>
-<input type="reset" value="Limpiar formulario">
 
-         </form>
-
-         <br>
-         <br>
-
-         <form><!--Elementos input que usaremos mas adelante-->
-            <fieldset>
-                <legend> Visualizacion de citas por: </legend>
-                <label for="mesCitas">Por favor, elige el filtro: </label>
-
-                <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked> Mes
-                <input type="radio" value="Month" name="appoimentFilter" id="appoimentByWeek" > Semana
-                <br>
-
-                <input type="month">
-                <br>
-                <input type="week" disabled>
-                <button id="verCitas">Ver citas</button>
-
-                <br>
-                <h4>Las citas programadas para el mes elegido son:</h4>
-                <br>
-                <table style="border: 1px solid black">
-                        <tr>
-                            <th style="border: 1px solid black">No.</th>
-                            <th style="border: 1px solid black">Nombre</th>
-                            <th style="border: 1px solid black">Descripcion</th>
-                            <th style="border: 1px solid black">Fecha Programada</th>
-                            <th style="border: 1px solid black">Estatus Actual</th>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid black">1</td>
-                            <td style="border: 1px solid black">Cita de entrega de unidad reparada con el 
-                                cliente: Mauricio Mejia, Unidad: Volkswagen Jetta 2020</td>
-                            <td style="border: 1px solid black">Se realizo un cambio de bujias, la unidad 
-                                esta lista para entrega</td>
-                            <td style="border: 1px solid black">10 de octubre de 2026</td>
-                            <td style="border: 1px solid black">Atendida</td>
-                        </tr>
-
-                        <tr>
-                            <td style="border: 1px solid black">2</td>
-                            <td style="border: 1px solid black">Cita de valoracion con el cliente: Marco A. 
-                                Ramirez, Unidad: Renault, Duster 2014</td>
-                            <td style="border: 1px solid black">El cliente solicita una revision del cuerpo
-                                de aceleracion de la unidad para posible mantenimiento correctivo.</td>
-                            <td style="border: 1px solid black">16 de octubre de 2026</td>
-                            <td style="border: 1px solid black">Programada</td>
-                        </tr>
-
-                         <tr>
-                            <td style="border: 1px solid black">3</td>
-                            <td style="border: 1px solid black">Cita de revision con el cliente: Mauricio 
-                                Mejia, Unidad: Volkswagen Jetta 2020</td>
-                            <td style="border: 1px solid black">A la unidad se le hicieron cambio de bujias,
-                                pero el cliente reporta un sonido extraño</td>
-                            <td style="border: 1px solid black">17 de octubre de 2026</td>
-                            <td style="border: 1px solid black">Programada</td>
-                        </tr>
-
-                        <tr>
-                            <td style="border: 1px solid black">4</td>
-                            <td style="border: 1px solid black">Cita de valoracion con la cliente: Alejandra
-                                Romero, Unidad: Toyota, Hilux 2012</td>
-                            <td style="border: 1px solid black">El cliente solicita una revision del cuerpo
-                                de aceleracion de la unidad para posible mantenimiento correctivo.</td>
-                            <td style="border: 1px solid black">16 de octubre de 2026</td>
-                            <td style="border: 1px solid black">Cancelada</td>
-                        </tr>
-
-                        <tr>
-                             <td style="border: 1px solid black">5</td>
-                            <td style="border: 1px solid black">Cita de valoracion con la cliente: Alejandra
-                                Romero, Unidad: Toyota, Hilux 2012</td>
-                            <td style="border: 1px solid black">El cliente solicita una revision del cuerpo
-                                de aceleracion de la unidad para posible mantenimiento correctivo.</td>
-                            <td style="border: 1px solid black">20 de octubre de 2026</td>
-                            <td style="border: 1px solid black">Programada</td>
-                        </tr>
-                </table>
-            </fieldset>
-         
-
-         <fieldset>
-            <legend>Configuraciones de la Interfaz:</legend>
-            <label for="fontColor">Color de la Fuente</label>
-            <input type="color" id="fontColor">
-            <br>
-            <label for="backgroundColor">Color de Fondo</label>
-            <input type="color" id="backgroundColor" value="#CCC">
-            <br>
-            <label for="soundsVolume">Volumen de reproducción de Sonidos</label>
-            <input type="range" id="soundsVolume" min="0" max="100" value="80">
-            <button id="muteSounds">Silenciar Sonidos </button>
-            </fieldset>
-        
-        <!--Formulario input que usaremos mas adelante-->
-         <fieldset>
-            <legend>Configuracion de Mi cuenta/perfil:</legend>
-            <label for="userPhoto">Foto de perfil:</label>
-            <input type="file" id="userPhoto" accept="image/*">
-            <br>
-            <input type="image" id="buttonNext" src="assets/image/next.gif" alt="Siguiente" width="50" height="50">
-            <br>
-            <input type="hidden" id="userId" value="251028">
-         </fieldset> 
-
-                <fieldset>
-                    <legend>Datos Fiscales:</legend>
-                    <label for="rfc">Registro Federal de Causantes (RFC):</label>
-                    <input type="text" id="rfc" maxlength="13" placeholder="RAHMXXXXXXX">
-                    <br>
-                    <label for="fiscalSituation">Constancia de Situacion Fiscal:</label>
-                    <input type="file" id="fiscalSituation" accept=".pdf">
-                    <input type="hidden" id="userId" value="251028">
-                </fieldset>
-
-                <fieldset>
-                    <legend>Solicitud de Citas:</legend>
-                    <label for="dateAppoiment">Fecha de la Cita:</label>
-                    <input type="datetime-local" id="dateAppoiment">
-                    <br>
-
-                    <label for="locations">Elige la sucursal:</label>
-                    <input list="locationsList" placeholder="Busca tu sucursal...">
-                    <datalist id="locationsList">
-                        <option>Xicotepec, Centro</option>
-                        <option>Xicotepec, El Tabacal</option>
-                        <option>San Isidro, Tierra Negra</option>
-                        <option>Necaxa, Canaditas</option>
-                        <option>Huauchinango, Petrolera 1</option>
-                    </datalist>
-                    <br>
-                    <label for="descriptionText">Descripción de la Cita:</label>
-                    <textarea id="descriptionText"></textarea>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Solicitud de Herramientas y Refacciones para Servicio Mecanico:</legend>
-                    <label for="resourceCategory" >Categoria de Recursos:</label>
-                    <input type="radio" id="resouceRefaction" name="resourceCategory" value="refaccion">Refaccion
-                    <input type="radio" id="resourceTool" name="resourceCategory" value="tool">Herramienta
-                    <br>
-                    <legend>Solicitud de herramientas para Servicio Mecánico: </legend>
-                    <label for="toolName">Elige la pieza: </label>
-                    <select>
-                        <optgroup label="Pieza de Motor">
-                            <option value="bujia">Bujía</option>
-                            <option value="filtro_aceite">Filtro de Aceite</option>
-                            <option value="banda_distribucion">Banda de Distribución</option>
-                        </optgroup>
-                        
-                        <optgroup label="Pieza de Transmisión">
-                            <option value="disco_embrague">Disco de Embrague</option>
-                            <option value="collarin">Collarin de Embrague</option>
-                            <option value="junta_homocinetica">Junta Homocinetica</option>
-                            <option value="semieje">Semieje de transmision</option>
-                        </optgroup>
-                        
-                        <optgroup label="Pieza de Suspensión">
-                            <option value="amortiguador">Amortiguador</option>
-                            <option value="rotula">Rotula de suspencion</option>
-                        </optgroup>
-
-                        <optgroup label="Llaves y Herramientas Especializadas">
-                            <option value="llave_combinada">Llave combinada</option>
-                            <option value="llave_torx">Llave torx</option>
-                            <option value="llave_dinamometrica">Llave dinamometrica</option>
-                            <option value="extractor_poleas">Extractor de poleas</option>
-                            <option value="compresor_resortes">Compresor de resortes</option>
-                            <option value="scanner_obd2">Escanear automotriz OBD-II</option>
-                        </optgroup>  
-                    </select>
-                    <label for="toolQuantity">Cantidad</label>
-                    <input type="number" id="toolQuantity" min="1" max="10">
-                    <button id="requestTool">Solicitar Herramientas</button>
-
-                     <table border="1" >
-        <thead>
-            
-                <th>No.</th>
-                <th>Herramienta</th>
-                <th>Categoría</th>
-                <th>Cantidad</th>
-                <th>Unidad</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Llave combinada</td>
-                <td>Herramienta manual</td>
-                <td>4</td>
-                <td>Piezas</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Llave dinamométrica</td>
-                <td>Herramienta especializada</td>
-                <td>2</td>
-                <td>Piezas</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Extractor de poleas</td>
-                <td>Herramienta especializada</td>
-                <td>1</td>
-                <td>Juego</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Llave Torx</td>
-                <td>Herramienta manual</td>
-                <td>3</td>
-                <td>Juegos</td>
-            </tr>
-           
-                <td colspan="3" style="text-align: right;">Total de unidades</td>
-                <td>10</td>
-                <td>-</td>
-            </tr>
-        </tbody>
-    </table>
-
-
-                </fieldset>
-
-
-
-            </form>
         </form>
+
+        <br><br>
+
+        <!-- VISUALIZACIÓN DE CITAS (FUERA DEL PASO A PASO) -->
+        <fieldset>
+            <legend>Visualización de Citas</legend>
+
+            <label>Por favor, elige el filtro: </label>
+            <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked>
+            <label for="appoimentByMonth">Mes</label>
+
+            <input type="radio" value="Week" name="appoimentFilter" id="appoimentByWeek">
+            <label for="appoimentByWeek">Semana</label>
+
+            <br><br>
+            <input type="month">
+            <br><br>
+
+            <input type="week" disabled>
+            <button id="verCitas" type="button">Ver citas</button>
+
+            <br><br>
+            <h4>Las citas programadas para el mes elegido son:</h4>
+            <br>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Fecha Programada</th>
+                        <th>Estatus Actual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Cita de entrega de unidad reparada con el cliente: Mauricio Mejía, Unidad: Volkswagen Jetta 2020</td>
+                        <td>Se realizó un cambio de bujías, la unidad está lista para entrega</td>
+                        <td>10 de octubre de 2026</td>
+                        <td>Atendida</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Cita de valoración con el cliente: Marco A. Ramírez, Unidad: Renault, Duster 2014</td>
+                        <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                        <td>16 de octubre de 2026</td>
+                        <td>Programada</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Cita de revisión con el cliente: Mauricio Mejía, Unidad: Volkswagen Jetta 2020</td>
+                        <td>A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño</td>
+                        <td>17 de octubre de 2026</td>
+                        <td>Programada</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                        <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                        <td>16 de octubre de 2026</td>
+                        <td>Cancelada</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                        <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                        <td>20 de octubre de 2026</td>
+                        <td>Programada</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
     </main>
+
+    <script src="js/main.js" defer></script>
 </body>
 </html>

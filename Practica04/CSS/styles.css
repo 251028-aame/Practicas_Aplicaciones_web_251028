@@ -330,3 +330,19 @@ h4 {
         padding: 8px;
     }
 }
+/* Estilo del mensaje de alerta superior en rojo */
+.mensaje-error {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+    border: 1px solid #f5c6cb !important;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Borde rojo para los campos vacíos o inválidos */
+input.campo-invalido, select.campo-invalido, textarea.campo-invalido {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8;
+}
