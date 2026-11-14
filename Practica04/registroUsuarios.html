@@ -1,253 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 251028</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MecaGest: Registro de usuarios - 251028</title>
+   <link rel="stylesheet" href="CSS/styles.css">   
     <link rel="icon" type="image/png" href="assets/image/automa.png">
-    <link rel="stylesheet" href="CSS/styles.css">
-</head>    
-<body>
-    <header>
-        <div class="header-contenido">
-            <img src="assets/image/Logo_Sistema.jpeg" alt="Logo MecaGest" class="logo-header">
-            <div class="header-texto">
-                <h1>MecaGest</h1>
-                <h2>Registro de nuevos usuarios</h2>
-                <p>Complete los campos para solicitar una cuenta en el sistema.</p>
-            </div>
+    <!-- Iconos de Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+<body class="registro-page">
+  <div class="app-layout registro-layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+    <img src="assets/image/Logo_Sistema.jpeg"
+         alt="Logo del sistema"
+         class="logo-img">
+</div>
+      <nav class="sidebar-menu" aria-label="Menú principal">
+
+
+    <a href="registroUsuarios.html" class="menu-item active">
+        <span class="material-symbols-outlined">person_add</span>
+        Registro de usuarios
+    </a>
+
+    <a href="proximasCitas.html" class="menu-item">
+        <span class="material-symbols-outlined">event_available</span>
+        Próximas citas
+    </a>
+
+    <a href="salidasAlmacen.html" class="menu-item">
+        <span class="material-symbols-outlined">build</span>
+        Salidas de almacén
+    </a>
+
+    <a href="configuracion.html" class="menu-item">
+        <span class="material-symbols-outlined">settings</span>
+        Configuración
+    </a>
+
+</nav></nav>
+      <div class="sidebar-footer"><span class="material-symbols-outlined">help</span><div><strong>¿Necesitas ayuda?</strong><small>Soporte técnico</small></div></div>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="top-navbar">
+        <div class="header-title">
+        <span class="material-symbols-outlined menu-toggle">menu</span>
+          <div><h1>MecaGest</h1><p>Panel de administración / Registro de usuarios</p></div>
         </div>
-    </header>
+        <div class="header-user"><span class="material-symbols-outlined">notifications</span><div class="user-profile"><span class="material-symbols-outlined">account_circle</span><span>Administrador</span></div></div>
+      </header>
 
-    <main>
-        <!-- Mensaje global para la alerta superior (roja) / respuesta (amarilla) -->
-        <div id="mensajeEstado" style="display: none;"></div>
+      <main class="content-area registro-content">
+        <section class="registro-intro">
+          <div><p class="eyebrow">MÓDULO 01 · USUARIOS</p><h2>Solicitud de registro</h2><p>Completa la información para crear una solicitud de acceso a MecaGest.</p></div>
+          <div class="intro-meta"><span class="material-symbols-outlined">verified_user</span><span>Registro seguro<br><small>Todos los campos se revisan antes de enviar</small></span></div>
+        </section>
 
-        <form action="" method="POST" id="formularioRegistro">
+        <section class="wizard-card" id="registroWizard">
+          <div class="wizard-topline"><div><span class="wizard-kicker">FORMULARIO DE ALTA</span><h3>Datos del nuevo usuario</h3></div><span class="step-counter" id="stepCounter">PASO 1 DE 4</span></div>
+          <nav class="stepper" aria-label="Progreso del registro">
+            <div class="stepper-track"><div class="stepper-fill" id="wizardProgress"></div></div>
+            <ol class="stepper-list">
+              <li class="stepper-item is-active" data-step="1" data-icon="person"><button type="button" class="step-btn"><span class="step-circle"><span class="material-symbols-outlined step-icon">person</span></span><span class="step-label">Personales</span></button></li>
+              <li class="stepper-item" data-step="2" data-icon="contact_mail"><button type="button" class="step-btn"><span class="step-circle"><span class="material-symbols-outlined step-icon">contact_mail</span></span><span class="step-label">Contacto</span></button></li>
+              <li class="stepper-item" data-step="3" data-icon="lock"><button type="button" class="step-btn"><span class="step-circle"><span class="material-symbols-outlined step-icon">lock</span></span><span class="step-label">Acceso</span></button></li>
+              <li class="stepper-item" data-step="4" data-icon="location_on"><button type="button" class="step-btn"><span class="step-circle"><span class="material-symbols-outlined step-icon">location_on</span></span><span class="step-label">Ubicación</span></button></li>
+            </ol>
+          </nav>
 
-            <!-- PASO 1: DATOS PERSONALES -->
-            <fieldset class="form-section">
-                <legend>Datos Personales</legend>
+          <form id="formRegistro" novalidate>
+            <div class="form-banner" id="bannerFormulario" role="alert" hidden></div>
+            <section class="wizard-panel" data-step="1">
+              <div class="panel-heading panel-head"><div><span class="panel-number">01 / INFORMACIÓN BÁSICA</span><h4>Datos personales</h4><p>Comencemos con los datos de identificación del usuario.</p></div><span class="material-symbols-outlined panel-symbol">badge</span></div>
+              <div class="form-grid">
+                <div class="field"><label for="nombre">Nombre <b>*</b></label><input id="nombre" name="nombre" type="text" placeholder="Nombre(s)" required autocomplete="given-name"><p class="field-error" id="error-nombre" hidden></p></div>
+                <div class="field"><label for="apPaterno">Apellido paterno <b>*</b></label><input id="apPaterno" name="apPaterno" type="text" placeholder="Apellido paterno" required autocomplete="family-name"><p class="field-error" id="error-apPaterno" hidden></p></div>
+                <div class="field"><label for="apMaterno">Apellido materno</label><input id="apMaterno" name="apMaterno" type="text" placeholder="Apellido materno"><p class="field-error" id="error-apMaterno" hidden></p></div>
+                <div class="field"><label for="genero">Género</label><select id="genero" name="genero"><option value="">Selecciona una opción</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="X">Prefiero no decirlo</option></select><p class="field-error" id="error-genero" hidden></p></div>
+                <div class="field"><label for="titulo">Título de cortesía</label><select id="titulo" name="titulo"><option>Sr.</option><option>Sra.</option><option>Srita.</option><option>Ing.</option><option>Dr.</option><option>Mtro.</option><option>Ninguno</option></select><p class="field-error" id="error-titulo" hidden></p></div>
+                <div class="field"><label for="fechaNacimiento">Fecha de nacimiento <b>*</b></label><input id="fechaNacimiento" name="fechaNacimiento" type="date" required><p class="field-error" id="error-fechaNacimiento" hidden></p></div>
+                <div class="field field-wide"><div class="age-result" id="resultadoEdad" aria-live="polite">Selecciona tu fecha de nacimiento para calcular tu edad.</div></div>
+              </div>
+            </section>
 
-                <label for="titulo">Título de Cortesía:</label>
-                <select id="titulo">
-                    <option>Sr.</option>
-                    <option>Sra.</option>
-                    <option>Srita.</option>
-                    <option>Ing.</option>
-                    <option>Dr.</option>
-                    <option>Mtro.</option>
-                    <option>Ninguno</option>
-                </select>
-                <br>
-
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Alma Ariadne" required>
-                <br>
-
-                <label for="apPaterno">Apellido Paterno:</label>
-                <input type="text" id="apPaterno" placeholder="Maldonado" required>
-                <br>
-
-                <label for="apMaterno">Apellido Materno:</label>
-                <input type="text" id="apMaterno" placeholder="Eslava">
-                <br>
-
-                <label for="genero">Género:</label>
-                <select id="genero">
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
-                    <option value="X">Prefiero no decirlo</option>
-                </select>
-                <br>
-
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-
-                <span id="resultadoEdad" style="font-weight: bold; display: block; margin-top: 10px; color: #e67e22;">
-                    Selecciona una fecha para calcular tu edad.
-                </span>
-                <br>
-
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
+            <section class="wizard-panel" data-step="2" hidden>
+              <div class="panel-heading panel-head"><div><span class="panel-number">02 / MEDIOS DE CONTACTO</span><h4>Datos de contacto</h4><p>Indica cómo podemos comunicarnos contigo.</p></div><span class="material-symbols-outlined panel-symbol">contact_phone</span></div>
+              <div class="form-grid">
+                <div class="field"><label for="correo">Correo electrónico <b>*</b></label><input id="correo" name="correo" type="email" placeholder="correo@ejemplo.com" required autocomplete="email"><p class="field-error" id="error-correo" hidden></p></div>
+                <div class="field"><label for="telefono">Número telefónico <b>*</b></label><input id="telefono" name="telefono" type="tel" placeholder="5512345678" inputmode="numeric" required maxlength="15" autocomplete="tel"><p class="field-error" id="error-telefono" hidden></p></div>
+                <div class="field"><label for="tipoNum">Tipo de número</label><select id="tipoNum" name="tipoNum"><option value="movil">Móvil</option><option value="casa">Casa</option><option value="trabajo">Trabajo</option></select></div>
+                <div class="field"><label for="horarioContactoInicio">Horario desde</label><input id="horarioContactoInicio" name="horarioContactoInicio" type="time"></div>
+                <div class="field"><label for="horarioContactoFin">Horario hasta</label><input id="horarioContactoFin" name="horarioContactoFin" type="time"></div>
+              </div>
+              <div class="social-section"><div class="social-title"><div><h5>Redes sociales y mensajería</h5><p>Activa únicamente los medios que deseas proporcionar.</p></div></div>
+                <div class="social-grid">
+                  <div class="social-row"><label class="check-label"><input type="checkbox" id="socialNetworks1"> Facebook</label><input type="url" id="urlFacebook" name="urlFacebook" placeholder="https://facebook.com/usuario" disabled><p class="field-error" id="error-urlFacebook" hidden></p></div>
+                  <div class="social-row"><label class="check-label"><input type="checkbox" id="socialNetworks2"> LinkedIn</label><input type="url" id="urlLinkedIn" name="urlLinkedIn" placeholder="https://linkedin.com/in/usuario" disabled><p class="field-error" id="error-urlLinkedIn" hidden></p></div>
+                  <div class="social-row social-row-file"><label class="check-label"><input type="checkbox" id="socialNetworks3"> WhatsApp</label><input type="file" id="whatsAppQR" name="whatsAppQR" accept="image/png,image/jpeg,image/webp" disabled><p class="field-error" id="error-whatsAppQR" hidden></p></div>
                 </div>
-            </fieldset>
+                <aside class="qr-card"><div class="qr-heading"><span class="material-symbols-outlined">qr_code_2</span><div><h5>Vista previa del QR</h5><p>La imagen solo se muestra localmente.</p></div></div><div class="qr-preview"><div id="qrEmpty" class="qr-empty"><span class="material-symbols-outlined">add_photo_alternate</span><span>Sin archivo seleccionado</span></div><img id="qrImage" alt="Vista previa del código QR" hidden><p id="qrError" class="field-error" hidden></p></div><p class="qr-file" id="qrFileName">No se ha seleccionado ningún archivo.</p><button type="button" id="qrRemove" class="btn btn-light btn-small" hidden>Quitar imagen</button></aside>
+              </div>
+            </section>
 
-            <!-- PASO 2: DATOS DE CONTACTO -->
-            <fieldset class="form-section" hidden>  
-                <legend>Datos de Contacto</legend>
+            <section class="wizard-panel" data-step="3" hidden>
+              <div class="panel-heading panel-head"><div><span class="panel-number">03 / CREDENCIALES</span><h4>Datos de acceso</h4><p>Define el usuario y la contraseña para ingresar al sistema.</p></div><span class="material-symbols-outlined panel-symbol">key</span></div>
+              <div class="form-grid">
+                <div class="field field-wide"><label for="usuario">Nombre de usuario <b>*</b></label><input id="usuario" name="usuario" type="text" placeholder="usuario.mecagest" minlength="4" required autocomplete="username"><small class="field-hint">Utiliza al menos 4 caracteres.</small><p class="field-error" id="error-usuario" hidden></p></div>
+                <div class="field"><label for="contrasena">Contraseña <b>*</b></label><input id="contrasena" name="contrasena" type="password" placeholder="Crea una contraseña" required autocomplete="new-password"><p class="field-error" id="error-contrasena" hidden></p><ul class="pass-rules" id="reglasContrasena"><li data-regla="longitud">Al menos 8 caracteres</li><li data-regla="mayuscula">Una letra mayúscula</li><li data-regla="numero">Un número</li><li data-regla="especial">Un signo especial</li></ul></div>
+                <div class="field"><label for="confirmarContrasena">Confirmar contraseña <b>*</b></label><input id="confirmarContrasena" name="confirmarContrasena" type="password" placeholder="Repite la contraseña" required autocomplete="new-password"><p class="field-error" id="error-confirmarContrasena" hidden></p></div>
+              </div>
+            </section>
 
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="correo" placeholder="alma@example.com" required>
-                <br>
+            <section class="wizard-panel" data-step="4" hidden>
+              <div class="panel-heading panel-head"><div><span class="panel-number">04 / DOMICILIO</span><h4>Datos de ubicación</h4><p>Agrega una dirección para completar el registro.</p></div><span class="material-symbols-outlined panel-symbol">location_on</span></div>
+              <div class="form-grid">
+                <div class="field field-wide"><label for="direccion">Dirección</label><input id="direccion" name="direccion" type="text" placeholder="Calle, número y colonia" autocomplete="street-address"><p class="field-error" id="error-direccion" hidden></p></div>
+                <div class="field"><label for="pais">País</label><input id="pais" name="pais" type="text" list="listaPaises" placeholder="México" autocomplete="country-name"><p class="field-error" id="error-pais" hidden></p></div>
+                <div class="field"><label for="estado">Estado</label><input id="estado" name="estado" type="text" list="listaEstados" placeholder="Puebla"><p class="field-error" id="error-estado" hidden></p></div>
+                <div class="field"><label for="ciudad">Ciudad o municipio</label><input id="ciudad" name="ciudad" type="text" list="listaCiudades" placeholder="Xicotepec"><p class="field-error" id="error-ciudad" hidden></p></div>
+                <div class="field"><label for="codigoPostal">Código postal</label><input id="codigoPostal" name="codigoPostal" type="text" list="listaCP" placeholder="73080" maxlength="5" inputmode="numeric" autocomplete="postal-code"><p class="field-error" id="error-codigoPostal" hidden></p></div>
+                <div class="field field-wide terms-field"><label class="terms-label"><input type="checkbox" id="terminos" name="terminos" required data-mensaje="Debes aceptar los términos y condiciones."><span>Acepto los términos y condiciones de uso de MecaGest. <b>*</b></span></label><p class="field-error" id="error-terminos" hidden></p></div>
+              </div>
+            </section>
 
-                <label for="phone">Número de Teléfono:</label>
-                <input type="tel" id="phone" name="telefono" placeholder="+55 764 121 0192" required>
-                <br>
-
-                <label for="horarioContactoInicio">Favor de contactar en el horario:</label>
-                <input type="time" id="horarioContactoInicio" placeholder="09:00"> a 
-                <input type="time" id="horarioContactOFin" placeholder="18:00">
-                <br><br>
-
-                <h4>Redes Sociales</h4>
-                <input type="checkbox" id="socialFb">
-                <label for="urlFacebook">Facebook:</label>
-                <input type="url" id="urlFacebook" placeholder="http://www.facebook.com/userName">
-                <br><br>
-
-                <input type="checkbox" id="socialLinkedin">
-                <label for="urlLinkedin">LinkedIn:</label>
-                <input type="url" id="urlLinkedin" placeholder="http://www.linkedin.com/userName">
-                <br><br>
-
-                <input type="checkbox" id="socialWa">
-                <label for="whatsAppQR">WhatsApp: (Cargar QR)</label>
-                <input type="file" id="whatsAppQR" accept="image/*">
-
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
-                </div>
-            </fieldset>
-
-            <!-- PASO 3: DATOS DE ACCESO -->
-            <fieldset class="form-section" hidden>
-                <legend>Datos de Acceso</legend>
-
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" placeholder="ariadnees" required>
-                <br>
-
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" placeholder="**********" required>
-                <br>
-
-                <label for="confirmarContraseña">Confirmar Contraseña:</label>
-                <input type="password" id="confirmarContraseña" placeholder="**********" required>
-
-                <div class="botones-seccion">
-                    <button type="button" class="btn-siguiente">Siguiente</button>
-                    <button type="reset" class="btn-borrar">Borrar</button>
-                </div>
-            </fieldset>
-
-            <!-- PASO 4: DATOS DE UBICACIÓN Y ENVÍO -->
-            <fieldset class="form-section" hidden>
-                <legend>Datos de Ubicación</legend>
-
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" placeholder="Calle, Número, Colonia, Ciudad, Estado, Código Postal" required>
-                <br>
-
-                <label for="pais">País:</label>
-                <input type="text" id="pais" placeholder="México" required>
-                <br>
-
-                <label for="estado">Estado:</label>
-                <input type="text" id="estado" placeholder="Ciudad de México" required>
-                <br>
-
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad" placeholder="Ciudad de México" required>
-                <br>
-
-                <label for="codigoPostal">Código Postal:</label>
-                <input type="text" id="codigoPostal" placeholder="73165" required>
-                <br><br>
-
-                <label class="checkbox-label">
-                    <input type="checkbox" id="validado" required> 
-                    Acepto los términos y condiciones del uso de la plataforma MecaGest.
-                </label>
-                <br><br>
-
-                <div class="botones-seccion">
-                    <input type="submit" id="btnSubmit" value="Enviar solicitud" disabled>
-                    <input type="reset" value="Limpiar formulario" class="btn-borrar">
-                </div>
-            </fieldset>
-
-        </form>
-
-        <br><br>
-
-        <!-- VISUALIZACIÓN DE CITAS (FUERA DEL PASO A PASO) -->
-        <fieldset>
-            <legend>Visualización de Citas</legend>
-
-            <label>Por favor, elige el filtro: </label>
-            <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked>
-            <label for="appoimentByMonth">Mes</label>
-
-            <input type="radio" value="Week" name="appoimentFilter" id="appoimentByWeek">
-            <label for="appoimentByWeek">Semana</label>
-
-            <br><br>
-            <input type="month">
-            <br><br>
-
-            <input type="week" disabled>
-            <button id="verCitas" type="button">Ver citas</button>
-
-            <br><br>
-            <h4>Las citas programadas para el mes elegido son:</h4>
-            <br>
-
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Fecha Programada</th>
-                        <th>Estatus Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Cita de entrega de unidad reparada con el cliente: Mauricio Mejía, Unidad: Volkswagen Jetta 2020</td>
-                        <td>Se realizó un cambio de bujías, la unidad está lista para entrega</td>
-                        <td>10 de octubre de 2026</td>
-                        <td>Atendida</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Cita de valoración con el cliente: Marco A. Ramírez, Unidad: Renault, Duster 2014</td>
-                        <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
-                        <td>16 de octubre de 2026</td>
-                        <td>Programada</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Cita de revisión con el cliente: Mauricio Mejía, Unidad: Volkswagen Jetta 2020</td>
-                        <td>A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño</td>
-                        <td>17 de octubre de 2026</td>
-                        <td>Programada</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
-                        <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
-                        <td>16 de octubre de 2026</td>
-                        <td>Cancelada</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
-                        <td>El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
-                        <td>20 de octubre de 2026</td>
-                        <td>Programada</td>
-                    </tr>
-                </tbody>
-            </table>
-        </fieldset>
-
-    </main>
-
-    <script src="js/main.js" defer></script>
+            <datalist id="listaPaises"></datalist><datalist id="listaEstados"></datalist><datalist id="listaCiudades"></datalist><datalist id="listaCP"></datalist>
+            <div class="wizard-actions"><button type="button" id="btnAnterior" class="btn btn-light" disabled><span class="material-symbols-outlined">arrow_back</span> Anterior</button><div class="actions-right"><button type="reset" id="btnLimpiar" class="btn btn-ghost">Limpiar</button><button type="submit" id="btnSiguiente" class="btn btn-primary"><span id="btnSiguienteTexto">Siguiente</span><span class="material-symbols-outlined" id="btnSiguienteIcono">arrow_forward</span></button></div></div>
+            <p class="wizard-footnote">Actividad académica: el formulario realiza validaciones y una simulación de envío. No almacena ni transmite información.</p>
+          </form>
+        </section>
+        <footer class="page-footer">MecaGest · Sistema de gestión de servicios automotrices · 251028</footer>
+      </main>
+    </div>
+  </div>
+  <script src="js/domicilios.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
