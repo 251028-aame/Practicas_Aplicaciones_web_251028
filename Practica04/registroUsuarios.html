@@ -20,7 +20,6 @@
 </div>
       <nav class="sidebar-menu" aria-label="Menú principal">
 
-
     <a href="registroUsuarios.html" class="menu-item active">
         <span class="material-symbols-outlined">person_add</span>
         Registro de usuarios
@@ -41,7 +40,7 @@
         Configuración
     </a>
 
-</nav></nav>
+</nav>
       <div class="sidebar-footer"><span class="material-symbols-outlined">help</span><div><strong>¿Necesitas ayuda?</strong><small>Soporte técnico</small></div></div>
     </aside>
 
@@ -77,9 +76,9 @@
             <section class="wizard-panel" data-step="1">
               <div class="panel-heading panel-head"><div><span class="panel-number">01 / INFORMACIÓN BÁSICA</span><h4>Datos personales</h4><p>Comencemos con los datos de identificación del usuario.</p></div><span class="material-symbols-outlined panel-symbol">badge</span></div>
               <div class="form-grid">
-                <div class="field"><label for="nombre">Nombre <b>*</b></label><input id="nombre" name="nombre" type="text" placeholder="Nombre(s)" required autocomplete="given-name"><p class="field-error" id="error-nombre" hidden></p></div>
-                <div class="field"><label for="apPaterno">Apellido paterno <b>*</b></label><input id="apPaterno" name="apPaterno" type="text" placeholder="Apellido paterno" required autocomplete="family-name"><p class="field-error" id="error-apPaterno" hidden></p></div>
-                <div class="field"><label for="apMaterno">Apellido materno</label><input id="apMaterno" name="apMaterno" type="text" placeholder="Apellido materno"><p class="field-error" id="error-apMaterno" hidden></p></div>
+                <div class="field"><label for="nombre">Nombre <b>*</b></label><input id="nombre" name="nombre" type="text" placeholder="Ariadne" required autocomplete="given-name"><p class="field-error" id="error-nombre" hidden></p></div>
+                <div class="field"><label for="apPaterno">Apellido paterno <b>*</b></label><input id="apPaterno" name="apPaterno" type="text" placeholder="Maldonado" required autocomplete="family-name"><p class="field-error" id="error-apPaterno" hidden></p></div>
+                <div class="field"><label for="apMaterno">Apellido materno</label><input id="apMaterno" name="apMaterno" type="text" placeholder="Eslava"><p class="field-error" id="error-apMaterno" hidden></p></div>
                 <div class="field"><label for="genero">Género</label><select id="genero" name="genero"><option value="">Selecciona una opción</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="X">Prefiero no decirlo</option></select><p class="field-error" id="error-genero" hidden></p></div>
                 <div class="field"><label for="titulo">Título de cortesía</label><select id="titulo" name="titulo"><option>Sr.</option><option>Sra.</option><option>Srita.</option><option>Ing.</option><option>Dr.</option><option>Mtro.</option><option>Ninguno</option></select><p class="field-error" id="error-titulo" hidden></p></div>
                 <div class="field"><label for="fechaNacimiento">Fecha de nacimiento <b>*</b></label><input id="fechaNacimiento" name="fechaNacimiento" type="date" required><p class="field-error" id="error-fechaNacimiento" hidden></p></div>
@@ -90,8 +89,8 @@
             <section class="wizard-panel" data-step="2" hidden>
               <div class="panel-heading panel-head"><div><span class="panel-number">02 / MEDIOS DE CONTACTO</span><h4>Datos de contacto</h4><p>Indica cómo podemos comunicarnos contigo.</p></div><span class="material-symbols-outlined panel-symbol">contact_phone</span></div>
               <div class="form-grid">
-                <div class="field"><label for="correo">Correo electrónico <b>*</b></label><input id="correo" name="correo" type="email" placeholder="correo@ejemplo.com" required autocomplete="email"><p class="field-error" id="error-correo" hidden></p></div>
-                <div class="field"><label for="telefono">Número telefónico <b>*</b></label><input id="telefono" name="telefono" type="tel" placeholder="5512345678" inputmode="numeric" required maxlength="15" autocomplete="tel"><p class="field-error" id="error-telefono" hidden></p></div>
+                <div class="field"><label for="correo">Correo electrónico <b>*</b></label><input id="correo" name="correo" type="email" placeholder="itsariadnees@ejemplo.com" required autocomplete="email"><p class="field-error" id="error-correo" hidden></p></div>
+                <div class="field"><label for="telefono">Número telefónico <b>*</b></label><input id="telefono" name="telefono" type="tel" placeholder="7641210192" inputmode="numeric" required maxlength="15" autocomplete="tel"><p class="field-error" id="error-telefono" hidden></p></div>
                 <div class="field"><label for="tipoNum">Tipo de número</label><select id="tipoNum" name="tipoNum"><option value="movil">Móvil</option><option value="casa">Casa</option><option value="trabajo">Trabajo</option></select></div>
                 <div class="field"><label for="horarioContactoInicio">Horario desde</label><input id="horarioContactoInicio" name="horarioContactoInicio" type="time"></div>
                 <div class="field"><label for="horarioContactoFin">Horario hasta</label><input id="horarioContactoFin" name="horarioContactoFin" type="time"></div>
@@ -109,8 +108,8 @@
             <section class="wizard-panel" data-step="3" hidden>
               <div class="panel-heading panel-head"><div><span class="panel-number">03 / CREDENCIALES</span><h4>Datos de acceso</h4><p>Define el usuario y la contraseña para ingresar al sistema.</p></div><span class="material-symbols-outlined panel-symbol">key</span></div>
               <div class="form-grid">
-                <div class="field field-wide"><label for="usuario">Nombre de usuario <b>*</b></label><input id="usuario" name="usuario" type="text" placeholder="usuario.mecagest" minlength="4" required autocomplete="username"><small class="field-hint">Utiliza al menos 4 caracteres.</small><p class="field-error" id="error-usuario" hidden></p></div>
-                <div class="field"><label for="contrasena">Contraseña <b>*</b></label><input id="contrasena" name="contrasena" type="password" placeholder="Crea una contraseña" required autocomplete="new-password"><p class="field-error" id="error-contrasena" hidden></p><ul class="pass-rules" id="reglasContrasena"><li data-regla="longitud">Al menos 8 caracteres</li><li data-regla="mayuscula">Una letra mayúscula</li><li data-regla="numero">Un número</li><li data-regla="especial">Un signo especial</li></ul></div>
+                <div class="field field-wide"><label for="usuario">Nombre de usuario <b>*</b></label><input id="usuario" name="usuario" type="text" placeholder="ariadnees" minlength="4" required autocomplete="username"><small class="field-hint">Utiliza al menos 4 caracteres.</small><p class="field-error" id="error-usuario" hidden></p></div>
+                <div class="field"><label for="contrasena">Contraseña <b>*</b></label><input id="contrasena" name="contrasena" type="password" placeholder="********" required autocomplete="new-password"><p class="field-error" id="error-contrasena" hidden></p><ul class="pass-rules" id="reglasContrasena"><li data-regla="longitud">Al menos 8 caracteres</li><li data-regla="mayuscula">Una letra mayúscula</li><li data-regla="numero">Un número</li><li data-regla="especial">Un signo especial</li></ul></div>
                 <div class="field"><label for="confirmarContrasena">Confirmar contraseña <b>*</b></label><input id="confirmarContrasena" name="confirmarContrasena" type="password" placeholder="Repite la contraseña" required autocomplete="new-password"><p class="field-error" id="error-confirmarContrasena" hidden></p></div>
               </div>
             </section>
@@ -118,7 +117,7 @@
             <section class="wizard-panel" data-step="4" hidden>
               <div class="panel-heading panel-head"><div><span class="panel-number">04 / DOMICILIO</span><h4>Datos de ubicación</h4><p>Agrega una dirección para completar el registro.</p></div><span class="material-symbols-outlined panel-symbol">location_on</span></div>
               <div class="form-grid">
-                <div class="field field-wide"><label for="direccion">Dirección</label><input id="direccion" name="direccion" type="text" placeholder="Calle, número y colonia" autocomplete="street-address"><p class="field-error" id="error-direccion" hidden></p></div>
+                <div class="field field-wide"><label for="direccion">Dirección</label><input id="direccion" name="direccion" type="text" placeholder="Alberto jimenez, 19, centro" autocomplete="street-address"><p class="field-error" id="error-direccion" hidden></p></div>
                 <div class="field"><label for="pais">País</label><input id="pais" name="pais" type="text" list="listaPaises" placeholder="México" autocomplete="country-name"><p class="field-error" id="error-pais" hidden></p></div>
                 <div class="field"><label for="estado">Estado</label><input id="estado" name="estado" type="text" list="listaEstados" placeholder="Puebla"><p class="field-error" id="error-estado" hidden></p></div>
                 <div class="field"><label for="ciudad">Ciudad o municipio</label><input id="ciudad" name="ciudad" type="text" list="listaCiudades" placeholder="Xicotepec"><p class="field-error" id="error-ciudad" hidden></p></div>
